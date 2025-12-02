@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login — Event Countdown</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <!-- Floating character (top-left) -->
+  <img src="assets/Counter-Clock.png" class="floating-character" alt="Floating Clock">
+  <!-- Floating theme toggle (top-right) -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+  <div class="container">
+    <div class="top-row">
+      <div class="title">Sign In</div>
+      <div class="user-info"><a class="ghost" href="signup.html">Sign Up</a></div>
+    </div>
+
+    <form id="loginForm" class="form" autocomplete="off">
+      <input id="liEmail" type="email" placeholder="Email" required />
+      <div class="row">
+        <input id="liPassword" type="password" placeholder="Password" required />
+        <button type="button" class="ghost toggle-pw" data-target="liPassword">Show</button>
+      </div>
+
+      <div class="row space">
+        <button class="primary" type="submit">Sign In</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

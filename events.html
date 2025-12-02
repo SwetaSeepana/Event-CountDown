@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Events — Event Countdown</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Floating character (top-left) -->
+  <img src="assets/Counter-Clock.png" class="floating-character" alt="Floating Clock">
+  <!-- Floating theme toggle (top-right) -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+  <div class="container">
+    <div class="top-row">
+      <div>
+        <div class="title">My Events</div>
+        <div class="small">Your saved events (only visible to you)</div>
+      </div>
+
+      <div class="user-info">
+        <div class="small">Hello, <strong id="userNameDisplay">—</strong></div>
+        <button id="logoutBtn" class="ghost">Sign out</button>
+      </div>
+    </div>
+
+    <header class="row controls" style="gap:12px;margin-bottom:10px;">
+      <input id="search" type="search" placeholder="Search events..." />
+      <select id="sort">
+        <option value="time-asc">Soonest first</option>
+        <option value="time-desc">Latest first</option>
+        <option value="alpha-asc">A → Z</option>
+        <option value="alpha-desc">Z → A</option>
+      </select>
+      <a class="ghost" href="index.html">+ Add Event</a>
+    </header>
+
+    <div id="eventsList" class="event-list"></div>
+
+    <div id="noEvents" class="no-events">No events saved yet — <a href="index.html">Add one</a></div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="modal" class="modal hidden" style="display:none;">
+    <div class="modal-card">
+      <h3>Edit Event</h3>
+      <form id="modalForm" class="form">
+        <input id="modalEventTitle" type="text" required />
+        <input id="modalEventDate" type="datetime-local" required />
+        <div class="row space">
+          <button class="primary" type="submit">Save</button>
+          <button id="cancelBtn" class="ghost" type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // ensure modal display toggles correctly (script sets class but here ensure style)
+    const modal = document.getElementById('modal');
+    if (modal) {
+      const observer = new MutationObserver(()=> {
+        if (modal.classList.contains('hidden')) modal.style.display = 'none';
+        else modal.style.display = 'flex';
+      });
+      observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Event Countdown — Add Event</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Floating character (top-left) -->
+  <img src="assets/Counter-Clock.png" class="floating-character" alt="Floating Clock">
+
+  <!-- Floating theme toggle (top-right) -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+  <div class="container">
+    <div class="top-row">
+      <div>
+        <div class="title">Event Countdown</div>
+        <div class="small">Add an event and preview its live countdown</div>
+      </div>
+
+      <div class="user-info">
+        <div class="small">Hello, <strong id="userNameDisplay">—</strong></div>
+        <button id="logoutBtn" class="ghost">Sign out</button>
+      </div>
+    </div>
+
+    <form id="addForm" class="form">
+      <input id="titleInput" type="text" placeholder="Event name (Birthday, Trip...)" required />
+      <input id="dateInput" type="datetime-local" required />
+      <div class="row space">
+        <button class="primary" type="submit">Save & Start</button>
+        <a class="ghost" href="events.html">View All Events</a>
+      </div>
+    </form>
+
+    <div id="quickPreview" class="quick-preview hidden">
+      <h3 id="qpTitle">—</h3>
+      <div class="countdown-box">
+        <div class="time"><span id="qpDays">0</span><p>Days</p></div>
+        <div class="time"><span id="qpHours">0</span><p>Hours</p></div>
+        <div class="time"><span id="qpMinutes">0</span><p>Minutes</p></div>
+        <div class="time"><span id="qpSeconds">0</span><p>Seconds</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
